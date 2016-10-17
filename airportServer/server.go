@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/rpc"
 
+	"github.com/amy/project1_Protobuf/airport"
 	"github.com/amy/project1_Protobuf/proto/airportdata"
 	"github.com/golang/protobuf/proto"
 )
@@ -31,6 +32,9 @@ func main() {
 	////////////
 	// SERVER //
 	////////////
+
+	airports := airport.Airports{}
+	airports.Airports = airport.Store(list)
 
 	rpc.Register(&airports)
 	rpc.HandleHTTP()
